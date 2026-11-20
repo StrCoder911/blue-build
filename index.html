@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Blue — POC</title>
     <style>html,body{background:#000;height:100%;margin:0;font-family:system-ui,sans-serif;overflow:hidden}canvas{display:block}#selbox{pointer-events:none;background:#7dff7d14;border:1px solid #7dff7d;display:none;position:fixed}#hud{color:#cfe3ff;pointer-events:none;font-size:12px;position:fixed;top:10px;left:10px}#stats{white-space:pre;background:#00081499;border-radius:6px;padding:8px 10px;line-height:1.5}#buttons{pointer-events:auto;flex-wrap:wrap;gap:6px;margin-top:6px;display:flex}button{color:#cfe3ff;cursor:pointer;background:#142846d9;border:1px solid #2c4a77;border-radius:5px;padding:5px 9px;font-size:12px}button:hover{background:#28466ee6}#help{color:#9fb6d6;pointer-events:none;background:#00081499;border-radius:6px;padding:8px 10px;font-size:12px;line-height:1.6;position:fixed;bottom:10px;left:10px}#help b{color:#cfe3ff;font-weight:600}</style>
-    <script type="module" crossorigin src="./assets/index-BYXnUbhj.js"></script>
+    <script type="module" crossorigin src="./assets/index-Dis425LA.js"></script>
   </head>
   <body>
     <div id="hud">
@@ -13,13 +13,13 @@
       <div id="buttons">
         <button id="btn-stress">Spawn 1,200 stress units</button>
         <button id="btn-chaos">Random orders: off</button>
-        <button id="btn-edge">Edge scroll: on</button>
+        <button id="btn-edge">Edge scroll: off</button>
         <button id="btn-seed">New planet</button>
       </div>
     </div>
     <div id="help">
-      <b>Left click / drag</b> select · <b>Shift</b> add · <b>Right click</b> move · <b>Ctrl+A</b> select all · <b>Esc</b> clear<br />
-      <b>Wheel</b> or <b>R/F</b> zoom · <b>WASD / arrows / screen edge</b> pan · <b>Q/E</b> rotate · <b>Middle-drag</b> or <b>Alt+drag</b> rotate &amp; tilt · <b>Space</b> jump to Commander
+      <b>Left-drag</b> spin globe · <b>Wheel</b> zoom · <b>Left click</b> select · <b>Shift+drag</b> box select · <b>Shift+click</b> add · <b>Right click</b> move<br />
+      <b>Ctrl+A</b> select all · <b>Esc</b> clear · <b>WASD / arrows</b> pan · <b>Q/E</b> turn · <b>Middle-drag</b> or <b>Alt+drag</b> turn &amp; tilt · <b>Space</b> jump to Commander
     </div>
     <div id="selbox"></div>
   </body>
