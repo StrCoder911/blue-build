@@ -4376,12 +4376,12 @@ float fogAt(vec3 d) {
       void main() {
         vec3 n = normalize(position);
         vec3 p = n * uRadius;
-        // long, low swell (wavelengths 70–160 units, < 0.3 units high)
+        // long swell (wavelengths 90–220 units, < 0.5 units high)
         const vec3 K0 = normalize(vec3(0.8, 0.1, 0.59)), K1 = normalize(vec3(-0.3, 0.9, 0.31)), K2 = normalize(vec3(0.2, -0.4, 0.89));
         float h = 0.0; vec3 g = vec3(0.0);
         vec3 K[3] = vec3[](K0, K1, K2);
-        float L[3] = float[](160.0, 105.0, 70.0);
-        float A[3] = float[](0.28, 0.18, 0.1);
+        float L[3] = float[](220.0, 140.0, 90.0);
+        float A[3] = float[](0.45, 0.3, 0.16);
         for (int i = 0; i < 3; i++) {
           float f = 6.2832 / L[i];
           float ph = dot(p, K[i]) * f - uTime * sqrt(9.8 * f);
@@ -4406,23 +4406,23 @@ float fogAt(vec3 d) {
       uniform vec3 uSunDir; uniform float uPixelAngle; uniform float uCloudShadows; uniform float uDebug;
       varying vec3 vWorld; varying vec3 vSwellN;
 
-      // 12 directional waves, 0.8–12 units long; each fades out once smaller than a few pixels.
+      // 12 directional waves, 1.1–30 units long (owner: bigger waves, 2026-11-21); each fades out once smaller than a few pixels.
       // Crests are bent by low-frequency noise and wave groups rise and fall across the sea,
       // so the sum never forms the regular criss-cross lattice of pure plane waves.
       vec3 detailNormal(vec3 p, vec3 n, float strength, float footprint, out float lost) {
         const int NW = 12;
-        vec3 w = vec3(vnoise3(p * 0.012, 41u), vnoise3(p * 0.012 + vec3(17.0), 42u), vnoise3(p * 0.012 + vec3(-9.0, 4.0, 23.0), 43u)) - 0.5;
-        vec3 pw = p + w * 60.0;
-        float grpA = vnoise3(p * 0.025, 44u), grpB = vnoise3(p * 0.025 + vec3(5.0, 11.0, 2.0), 45u);
+        vec3 w = vec3(vnoise3(p * 0.006, 41u), vnoise3(p * 0.006 + vec3(17.0), 42u), vnoise3(p * 0.006 + vec3(-9.0, 4.0, 23.0), 43u)) - 0.5;
+        vec3 pw = p + w * 120.0;
+        float grpA = vnoise3(p * 0.012, 44u), grpB = vnoise3(p * 0.012 + vec3(5.0, 11.0, 2.0), 45u);
         vec3 g = vec3(0.0);
         float total = 0.0, kept = 0.0;
         for (int i = 0; i < NW; i++) {
           float fi = float(i);
           vec3 k = normalize(vec3(sin(fi * 2.399 + 0.3), cos(fi * 1.713 + 1.1), sin(fi * 0.917 + 2.0)));
-          float lambda = 12.0 * pow(0.78, fi);
+          float lambda = 30.0 * pow(0.74, fi);
           float f = 6.2832 / lambda;
           float grp = mod(fi, 2.0) < 0.5 ? grpA : grpB;
-          float steep = 0.1 * strength * (0.6 + 0.4 * fract(fi * 0.618)) * (0.25 + 1.5 * grp);
+          float steep = 0.12 * strength * (0.6 + 0.4 * fract(fi * 0.618)) * (0.25 + 1.5 * grp);
           float ph = dot(pw, k) * f - uTime * sqrt(9.8 * f) * 0.9 + fi * 1.7;
           float fade = smoothstep(4.0 * footprint, 12.0 * footprint, lambda);
           g += steep * cos(ph) * k * fade;
