@@ -1,4 +1,4 @@
-# Built game files for cloudspace.dk/blue (generated from branch poc/p0-foundation).
+# Preview build of branch unit-orders (StrCoder911/Blue) for play-testing at cloudspace.dk/blue-preview/unit-orders/
 # Hide the Git metadata the Hostinger deploy leaves in this folder.
 RedirectMatch 404 /\.git
 # Always revalidate the page itself so new builds show up at once;
