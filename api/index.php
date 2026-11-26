@@ -41,6 +41,8 @@ function db(): PDO {
     if (str_starts_with($cfg['db_dsn'], 'sqlite:')) { // local tests only (scripts/directory-check.mjs)
       $pdo->exec('CREATE TABLE IF NOT EXISTS servers (id INTEGER PRIMARY KEY AUTOINCREMENT, name TEXT UNIQUE NOT NULL, secret_hash TEXT NOT NULL, ip TEXT NOT NULL, port INT NOT NULL DEFAULT 25564, title TEXT NOT NULL DEFAULT \'\', official INT NOT NULL DEFAULT 0, players INT NOT NULL DEFAULT 0, games INT NOT NULL DEFAULT 0, version TEXT NOT NULL DEFAULT \'\', reachable INT NOT NULL DEFAULT 0, checked_at INT NOT NULL DEFAULT 0, last_seen INT NOT NULL, created INT NOT NULL, blocked INT NOT NULL DEFAULT 0)');
       $pdo->exec('CREATE TABLE IF NOT EXISTS hits (k TEXT NOT NULL, t INT NOT NULL)');
+    } elseif (!$pdo->query("SHOW TABLES LIKE 'servers'")->fetchColumn()) { // first use: create the tables
+      foreach (explode(';', (string)file_get_contents(__DIR__ . '/schema.sql')) as $sql) { $sql = trim(preg_replace('/^--.*$/m', '', $sql) ?? ''); if ($sql !== '') $pdo->exec($sql); }
     }
   }
   return $pdo;
