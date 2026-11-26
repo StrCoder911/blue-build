@@ -64,7 +64,7 @@ function body(): array {
 }
 function title(mixed $s): string {
   $s = is_string($s) ? $s : '';
-  $s = preg_replace('/[^\p{L}\p{N} \'\-_.!?&()]/u', '', $s) ?? '';
+  $s = preg_replace('/[^\p{L}\p{N} \'\-_.!?&()#]/u', '', $s) ?? '';
   $s = trim(preg_replace('/\s+/', ' ', $s) ?? '');
   foreach (BAD as $w) if (stripos($s, $w) !== false) return 'Atoll Rising server';
   return mb_substr($s, 0, 40) ?: 'Atoll Rising server';
