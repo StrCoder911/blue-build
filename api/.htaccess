@@ -1,0 +1,3 @@
+<Files "schema.sql">
+  Require all denied
+</Files>
