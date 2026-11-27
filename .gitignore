@@ -1,4 +1,6 @@
 private/atoll-directory-config.php
 download/
 test/
+testsite/
+public_html/
 test.htpasswd
