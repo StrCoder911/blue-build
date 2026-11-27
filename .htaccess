@@ -2,6 +2,9 @@
 # No password (owner decision 2026-11-27); kept out of search engines.
 Header always set X-Robots-Tag "noindex, nofollow"
 RedirectMatch 404 /\.git
+# The game page first; Hostinger's placeholder (default.php, not ours) is never served.
+DirectoryIndex index.html
+RedirectMatch 404 ^/default\.php$
 <FilesMatch "\.html$">
   Header set Cache-Control "no-cache"
 </FilesMatch>
