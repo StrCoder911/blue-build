@@ -2,6 +2,10 @@
 # Hide Git metadata and repo notes the Hostinger deploy leaves here.
 RedirectMatch 404 /\.git
 RedirectMatch 404 ^/README\.md$
+# Password files (test.htpasswd for test.atollrising.eu) are never served.
+<FilesMatch "^\.ht|\.htpasswd$">
+  Require all denied
+</FilesMatch>
 # Always revalidate the page itself so new builds show up at once; hashed assets can be cached long.
 <FilesMatch "\.html$">
   Header set Cache-Control "no-cache"
