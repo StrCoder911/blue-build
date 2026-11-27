@@ -1,0 +1,12 @@
+# atollrising.eu: the game (built from StrCoder911/Blue main), the directory API (api/) and the downloads (download/, own deploy).
+# Hide Git metadata and repo notes the Hostinger deploy leaves here.
+RedirectMatch 404 /\.git
+RedirectMatch 404 ^/README\.md$
+# Always revalidate the page itself so new builds show up at once; hashed assets can be cached long.
+<FilesMatch "\.html$">
+  Header set Cache-Control "no-cache"
+</FilesMatch>
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresByType application/javascript "access 1 year"
+</IfModule>

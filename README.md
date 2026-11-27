@@ -1,1 +1,1 @@
-# Atoll Rising directory (deployed to atollrising.eu). Source: StrCoder911/Blue, directory/. The settings file private/atoll-directory-config.php is NOT in git.
+# atollrising.eu: the game (dist/ of StrCoder911/Blue main) and the directory (directory/ of the same repo). The settings file private/atoll-directory-config.php is NOT in git. download/ is deployed separately from branch `downloads`.
