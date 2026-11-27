@@ -1,0 +1,11 @@
+# test.atollrising.eu: test builds, password protected (Basic Authentication).
+# The password file is on the host only, above the website folder; never in git.
+AuthType Basic
+AuthName "Atoll Rising test"
+AuthUserFile /home/u451293550/domains/atollrising.eu/test.htpasswd
+Require valid-user
+Header always set X-Robots-Tag "noindex, nofollow"
+RedirectMatch 404 /\.git
+<FilesMatch "\.html$">
+  Header set Cache-Control "no-cache"
+</FilesMatch>
