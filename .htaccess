@@ -1,12 +1,3 @@
-# Built game files for cloudspace.dk/blue (generated from branch poc/p0-foundation).
-# Hide the Git metadata the Hostinger deploy leaves in this folder.
+# cloudspace.dk/blue was the dev site. The game now lives at atollrising.eu.
 RedirectMatch 404 /\.git
-# Always revalidate the page itself so new builds show up at once;
-# hashed files under assets/ can be cached long.
-<FilesMatch "\.html$">
-  Header set Cache-Control "no-cache"
-</FilesMatch>
-<IfModule mod_expires.c>
-  ExpiresActive On
-  ExpiresByType application/javascript "access 1 year"
-</IfModule>
+RedirectMatch 301 ^/blue(/.*)?$ https://atollrising.eu/
