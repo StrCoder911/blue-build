@@ -16,10 +16,10 @@ a{color:#3ff0d8}
 <body><main>
 <div class="k">ATOLL RISING</div>
 <h1>HOST A SERVER</h1>
-<p class="dim">Version <b>0.5.5</b>. Run your own multiplayer server. It gets its own address and certificate and shows up in the game's server list by itself.</p>
+<p class="dim">Version <b>0.5.6</b>. Run your own multiplayer server. It gets its own address and certificate and shows up in the game's server list by itself.</p>
 <div class="dl">
-  <a href="AtollRisingServer-0.5.5-windows.zip" download>Windows server 0.5.5 (55 MB)</a>
-  <a href="AtollRisingServer-0.5.5-linux.zip" download>Linux server 0.5.5 (52 MB)</a>
+  <a href="AtollRisingServer-0.5.6-windows.zip" download>Windows server 0.5.6 (55 MB)</a>
+  <a href="AtollRisingServer-0.5.6-linux.zip" download>Linux server 0.5.6 (52 MB)</a>
 </div>
 <ol>
   <li>Unpack the zip anywhere and keep everything in its folder together.</li>
@@ -27,7 +27,8 @@ a{color:#3ff0d8}
   <li>Forward TCP port <b>25564</b> on your router to this computer, and allow it in the firewall. On Windows Server, run this in an administrator PowerShell:<br><code>New-NetFirewallRule -DisplayName "Atoll Rising server" -Direction Inbound -Protocol TCP -LocalPort 25564 -Action Allow</code></li>
   <li>Keep the window open. It shows your server's address and says if the port can't be reached.</li>
 </ol>
-<p><b>Updating:</b> stop the server, unpack the new zip into the same place as before so its folder lands on top of the old one, and let it replace the files. Your settings, identity and certificate are not in the zip and stay as they are. The server's first line shows its version.</p>
+<p><b>Automatic updates:</b> from version 0.5.6 the server updates itself. Every 10 minutes it looks for a new version; when one is out and no game or room is open, it downloads it, checks that it is signed by Atoll Rising, installs it and starts again in the same window. Set <code>"autoUpdate": false</code> in <code>atollrising-server.json</code> to only be told instead.</p>
+<p><b>Updating by hand</b> (needed once to get to 0.5.6): stop the server, unpack the new zip into the same place as before so its folder lands on top of the old one, and let it replace the files. Your settings, identity and certificate are not in the zip and stay as they are. The server's first line shows its version.</p>
 <p class="dim">Settings are in <code>atollrising-server.json</code> next to the program (title, name, port); see README.txt. Whoever runs a server runs its games, so the server can see everything in them.</p>
 <p><a href="https://atollrising.eu/">Back to Atoll Rising</a></p>
 </main></body></html>
