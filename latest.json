@@ -1,4 +1,4 @@
 {
- "notice": "{\"product\":\"atollrising-server\",\"version\":\"0.5.6\",\"files\":{\"windows\":{\"file\":\"AtollRisingServer-0.5.6-windows.zip\",\"sha256\":\"2046a49ce57230de8b84157a3480d3db919178809666cf013c0fdaa3e2d20b28\",\"size\":56903334},\"linux\":{\"file\":\"AtollRisingServer-0.5.6-linux.zip\",\"sha256\":\"2bf4b436f593f65a7c104630c3e49f7a662e70ae93dcb9178a68fae5a445b05c\",\"size\":53810877}}}",
- "sig": "Aqn2H4jPOeu01/LL10W1r/glOAs55RiVUYH3nb1ynts31FqPirDzsr/dl+95ONYF1oabJJsaGEMSVK7kCvNTBw=="
+ "notice": "{\"product\":\"atollrising-server\",\"version\":\"0.5.7\",\"files\":{\"windows\":{\"file\":\"AtollRisingServer-0.5.7-windows.zip\",\"sha256\":\"e58d00ea06fa35f7b34f2d2cee53d9793240e8d2942a6fea68e032b63c786636\",\"size\":56904494},\"linux\":{\"file\":\"AtollRisingServer-0.5.7-linux.zip\",\"sha256\":\"c113c689e3248b3acfacda846cd9ed10f7d5135f05cdf8ed93715081876e2dfc\",\"size\":53812027}}}",
+ "sig": "RY6YesXByRpz1dbDsOehR/AQZWjDAljLhQQKMNLTRQnS04TtRDSDOxxuQiwzY8XgAKk88FKm2hofeqCsPnnRAA=="
 }
