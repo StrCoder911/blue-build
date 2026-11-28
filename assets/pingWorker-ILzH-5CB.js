@@ -1,0 +1,1 @@
+(function(){self.onmessage=async e=>{for(let t of e.data){let e=[];for(let n=0;n<4;n++){let n=performance.now();try{await fetch(t.url,{mode:`no-cors`,cache:`no-store`,signal:AbortSignal.timeout(4e3)}),e.push(performance.now()-n)}catch{break}}self.postMessage({name:t.name,times:e})}}})();
